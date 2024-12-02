@@ -23,8 +23,8 @@ app.use('*', async (req: Request, res: Response, next: NextFunction) => {
     res.status(400).end();
 });
 
-const listener = app.listen(process.argv[0] ? parseInt(process.argv[0]) : 4146, 'localhost', () => {
-    console.log("Server started ::" + (process.argv[0] ?? 4146));
+const listener = app.listen(parseInt(process.env.PORT ?? "4146"), 'localhost', () => {
+    console.log("Server started ::" + (process.env.PORT ?? "4146"));
 });
 
 process.stdout.write(
